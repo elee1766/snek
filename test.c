@@ -16,11 +16,12 @@ int main (int argc, char *argv[])
   int max_y = 0, max_x = 0;
   int next_x = 0;
   int next_y = 0;
-  
+
   int xlast;
   int ylast;
 
   int xdirection = 0;
+
   int ydirection = 0;
 
   int yhist[250];
@@ -54,7 +55,7 @@ int main (int argc, char *argv[])
   nodelay (stdscr, TRUE);
 
   keypad (stdscr, TRUE);
-  
+
   start_color();
   init_color(COLOR_BLACK, 8, 8, 8);
   init_pair(1, COLOR_RED, COLOR_BLACK);
@@ -64,7 +65,7 @@ int main (int argc, char *argv[])
   echo ();
 
   //this stupid piece of code makes string str equal to an int
-  //sprintf(str,"%d",lastinput);  
+  //sprintf(str,"%d",lastinput);
 
 
   while (true)
@@ -89,10 +90,10 @@ int main (int argc, char *argv[])
 	  frame++;
 
 	  //debug code to display values
-      
+
 	  sprintf (str, "high score: %d", highscore);
 	  sprintf (fr, "current score: %d", length);
-      sprintf(frames,"Frames Elapsed: %d %f",frame,scale);  
+      sprintf(frames,"Frames Elapsed: %d %f",frame,scale);
 
       attron(COLOR_PAIR(3));
 	  mvprintw (0, 0, str);
@@ -104,7 +105,7 @@ int main (int argc, char *argv[])
       attron(COLOR_PAIR(1));
 	  mvprintw (y, x, "O");
       attroff(COLOR_PAIR(1));
-	  
+
       //body of the snake
 	  if (length > 1)
 	    {
@@ -153,7 +154,7 @@ int main (int argc, char *argv[])
 	      ydirection = 0;
 	      xdirection = 1;
 	    }
-     
+
       //we need to stop you from killing yourself. if your direction is the opposite of your card, then cancel the move
 
       if(xdirection*-1 == xlast && ydirection * -1 == ylast){
@@ -177,7 +178,7 @@ int main (int argc, char *argv[])
 	  x += xdirection;
 	  y += ydirection;
 
-	  //allows me to increase the SPEEEED of the game  
+	  //allows me to increase the SPEEEED of the game
 	  if (ydirection == 0)
 	    {
 	      DELAY = 40000 * scale;
