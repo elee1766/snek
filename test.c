@@ -100,6 +100,9 @@ int main (int argc, char *argv[])
 	  mvprintw (0, max_x - 20, fr);
       mvprintw (0, max_x/2 - 15, frames);
 
+
+
+
       attroff(COLOR_PAIR(3));
 	  //head of the snake
       attron(COLOR_PAIR(1));
